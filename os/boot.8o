@@ -1,0 +1,30 @@
+:const io_default_addr 0x1f0
+: main
+	i := io_default_addr
+	v0 := 0x80
+	save v0
+
+	i := io_default_addr
+	load v0
+	if v0 == 0x80 begin
+		v0 := 14
+		v1 := 24
+		v2 := 13
+		i := hex v0
+		sprite v1 v2 5
+		v0 := 0
+		v1 += 5
+		i := hex v0
+		sprite v1 v2 5
+		v0 := 1
+		v1 += 4 #kerning!
+		i := hex v0
+		sprite v1 v2 5
+		jump fail
+	end
+
+: fail
+	loop again
+
+: error
+	0 0 0
