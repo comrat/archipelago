@@ -23,6 +23,12 @@
 		jump fail
 	end
 
+	i := io_defaul_addr
+	v0 := 1 #map devices to 0x1f0 - 0x200
+	save v0
+
+	#load loader rom using web-request
+
 : fail
 	loop again
 
