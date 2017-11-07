@@ -1,0 +1,8 @@
+{
+	"platforms": ["web"],
+	"properties": {
+		"title": "octosmart",
+		"version": "1.0.0"
+	},
+	"templater": "jinja2"
+}
