@@ -5,5 +5,5 @@
 	path = app/controls
 	url = git@github.com:pureqml/controls.git
 [submodule "dist/Octo"]
-	path = app/dist/Octo
+	path = octo
 	url = git@github.com:comrat/Octo.git
