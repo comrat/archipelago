@@ -1,12 +1,12 @@
-:const io_default_addr 0x1f0
+:const io_base_addr 0x1f0
 :const io_gist 0x1f0
 
 : main
-	i := io_default_addr
+	i := io_base_addr
 	v0 := 0x80
 	save v0
 
-	i := io_default_addr
+	i := io_base_addr
 	load v0
 	if v0 == 0x80 begin
 		v0 := 14
@@ -25,7 +25,7 @@
 		jump fail
 	end
 
-	i := io_default_addr
+	i := io_base_addr
 	v0 := 1 #map devices to 0x1f0 - 0x200
 	save v0
 
