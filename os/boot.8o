@@ -1,4 +1,5 @@
 :const io_default_addr 0x1f0
+:const io_gist 0x1f0
 
 : main
 	i := io_default_addr
@@ -29,7 +30,50 @@
 	save v0
 
 	#load loader rom using web-request
+	i := loader_gist
+	load v9
+
+	i := io_gist
+	save v0
+
+	v0 := v1
+	i := io_gist
+	save v0
+
+	v0 := v2
+	i := io_gist
+	save v0
+
+	v0 := v3
+	i := io_gist
+	save v0
+
+	v0 := v4
+	i := io_gist
+	save v0
+
+	v0 := v5
+	i := io_gist
+	save v0
+
+	v0 := v6
+	i := io_gist
+	save v0
+
+	v0 := v7
+	i := io_gist
+	save v0
+
+	v0 := v8
+	i := io_gist
+	save v0
+
+	v0 := v9
+	i := io_gist
+	save v0
 
 : fail
 	loop again
 
+: loader_gist
+	0xdd 0x07 0xf4 0xc5 0x44 0xfc 0x95 0xb6 0xad 0x94
