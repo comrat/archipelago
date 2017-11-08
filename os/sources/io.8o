@@ -3,12 +3,7 @@
 :const IO_ID_MOUSE    2
 :const IO_ID_GAMEPAD1 3
 :const IO_ID_GAMEPAD2 4
-
-:const IO_INIT_MAPPER   0x80
-:const IO_INIT_GIST     0x81
-:const IO_INIT_MOUSE    0x82
-:const IO_INIT_GAMEPAD1 0x83
-:const IO_INIT_GAMEPAD2 0x84
+:const IO_ID_YM2612   5
 
 :const IO_BASE_ADDR_COMPAT 0x1f0
 
@@ -28,4 +23,13 @@
 		v2 := 0
 
 	v0 := v2
+	return
+
+#va = device index
+: io_init_device
+	v0 := 0x80
+	v0 |= va
+	i := IO_BASE_ADDR_COMPAT
+	save v0 - v0
+	load v0 - v1
 	return

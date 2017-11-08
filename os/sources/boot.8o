@@ -1,4 +1,5 @@
 :const io_gist 0x1f2
+:const io_mouse 0x1f3
 
 : main
 	io_init
@@ -7,9 +8,34 @@
 
 	#now we're in XOIO mode
 
-	i := IO_BASE_ADDR_COMPAT
-	v0 := IO_INIT_GIST
-	save v0
+	va := IO_ID_GIST
+	io_init_device
+
+	va := IO_ID_MOUSE
+	io_init_device
+
+	v3 := 0
+	v4 := 0
+	i := mouse_tile
+	sprite v3 v4 4
+	loop
+		i := io_mouse
+		load v0 - v2
+		if v0 != v3 then
+			jump mouse_move
+		if v1 == v4 then
+			jump mouse_next
+
+	: mouse_move
+		i := mouse_tile
+		sprite v3 v4 4
+		v3 := v0
+		v4 := v1
+		sprite v3 v4 4
+
+	: mouse_next
+		if v2 != 1 then
+	again
 
 	#load loader rom using web-request
 	v1 := 0
@@ -25,6 +51,12 @@
 		if v1 != 10 then
 	again
 	jump fail
+
+: mouse_tile
+	0xe0
+	0xc0
+	0xa0
+	0x10
 
 : display_error
 	va := 0
