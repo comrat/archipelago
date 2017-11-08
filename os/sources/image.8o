@@ -1,0 +1,20 @@
+: image_draw_tiles
+	v0 := 0
+	v1 := vb #y
+	v2 := 8
+	loop
+		v4 := va #x
+		v3 := 0
+		loop
+			sprite v4 v1 8
+			v4 += 8
+			v3 += 1
+			i += v2
+			if v3 != vc then
+		again
+
+		v1 += 8
+		v0 += 1
+		if v0 != vd then
+	again
+	return
