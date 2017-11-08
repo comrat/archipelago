@@ -1,23 +1,13 @@
-:const io_base_addr 0x1f0
 :const io_gist 0x1f2
 
 : main
-	i := io_base_addr
-	v0 := 0x00 #query mapper device
-	save v0
-
-	i := io_base_addr
-	load v1 #v0 - v1 == 0x1f0 = compatible mapper mode
-
-	if v0 != 0x01 then
-		jump display_error
-
-	if v1 != 0xf0 then
+	io_init
+	if v0 != 1 then
 		jump display_error
 
 	#now we're in XOIO mode
 
-	i := io_base_addr
+	i := IO_BASE_ADDR_COMPAT
 	v0 := IO_INIT_GIST
 	save v0
 

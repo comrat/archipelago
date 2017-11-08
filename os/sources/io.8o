@@ -10,3 +10,22 @@
 :const IO_INIT_GAMEPAD1 0x83
 :const IO_INIT_GAMEPAD2 0x84
 
+:const IO_BASE_ADDR_COMPAT 0x1f0
+
+: io_init
+	i := IO_BASE_ADDR_COMPAT
+	v0 := 0x00 #query mapper device
+	save v0
+
+	i := IO_BASE_ADDR_COMPAT
+	load v1 #v0 - v1 == 0x1f0 = compatible mapper mode
+
+	v2 := 1
+	if v0 != 0x01 then
+		v2 := 0
+
+	if v1 != 0xf0 then
+		v2 := 0
+
+	v0 := v2
+	return
