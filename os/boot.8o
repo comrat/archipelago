@@ -1,4 +1,5 @@
 :const io_default_addr 0x1f0
+
 : main
 	i := io_default_addr
 	v0 := 0x80
@@ -23,7 +24,7 @@
 		jump fail
 	end
 
-	i := io_defaul_addr
+	i := io_default_addr
 	v0 := 1 #map devices to 0x1f0 - 0x200
 	save v0
 
@@ -32,5 +33,3 @@
 : fail
 	loop again
 
-: error
-	0 0 0
