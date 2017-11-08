@@ -2,7 +2,7 @@ BUILD:=build
 
 $(BUILD)/boot.8o: Makefile sources/boot.8o sources/io.8o sources/image.8o \
 	$(BUILD)/boot_tiles.8o
-	cat sources/boot.8o sources/io.8o sources/image.8o > $@
+	cat sources/io.8o sources/boot.8o sources/image.8o > $@
 	cat $(BUILD)/boot_tiles.8o >> $@
 
 $(BUILD)/boot_tiles.8o: Makefile tools/generate-tiles assets/tiles/noxoio.png
