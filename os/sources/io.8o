@@ -1,7 +1,12 @@
-:const IO_ID_MAPPER 0
-:const IO_ID_GIST   1
-:const IO_ID_MOUSE  2
+:const IO_ID_MAPPER   0
+:const IO_ID_GIST     1
+:const IO_ID_MOUSE    2
+:const IO_ID_GAMEPAD1 3
+:const IO_ID_GAMEPAD2 4
 
-:const IO_INIT_MAPPER 0x80
-:const IO_INIT_GIST   0x81
-:const IO_INIT_MOUSE  0x82
+:const IO_INIT_MAPPER   0x80
+:const IO_INIT_GIST     0x81
+:const IO_INIT_MOUSE    0x82
+:const IO_INIT_GAMEPAD1 0x83
+:const IO_INIT_GAMEPAD2 0x84
+
