@@ -14,6 +14,10 @@
 	va := IO_ID_MOUSE
 	io_init_device
 
+	i := io_mouse
+	v0 := 1 #hide cursor
+	save v0
+
 	v3 := 0
 	v4 := 0
 	i := mouse_tile
@@ -50,6 +54,11 @@
 		v1 += 1
 		if v1 != 10 then
 	again
+
+	i := io_mouse
+	v0 := 0 #show cursor
+	save v0
+
 	jump fail
 
 : mouse_tile
