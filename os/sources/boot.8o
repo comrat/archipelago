@@ -3,8 +3,16 @@
 
 : main
 	io_init
-	if v0 != 1 then
-		jump display_error
+	if v0 != 1 begin
+		va := 0
+		vb := 0
+		vc := 8
+		vd := 4
+		i := tile_noxoio_data
+		image_draw_tiles
+		exit
+		loop again
+	end
 
 	#now we're in XOIO mode
 
@@ -13,6 +21,11 @@
 
 	va := IO_ID_MOUSE
 	io_init_device
+
+	jump main_high
+
+:org 0xf80
+: main_high
 
 	i := io_mouse
 	v0 := 1 #hide cursor
@@ -59,24 +72,13 @@
 	v0 := 0 #show cursor
 	save v0
 
-	jump fail
+	loop again
 
 : mouse_tile
 	0xe0
 	0xc0
 	0xa0
 	0x10
-
-: display_error
-	va := 0
-	vb := 0
-	vc := 8
-	vd := 4
-	i := tile_noxoio_data
-	image_draw_tiles
-
-: fail
-	loop again
 
 : loader_gist
 	0xdd 0x07 0xf4 0xc5 0x44 0xfc 0x95 0xb6 0xad 0x94
