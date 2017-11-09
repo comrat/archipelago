@@ -1,4 +1,4 @@
-Request {
+Object {
 	property string url;
 	signal loaded;
 	signal error;
