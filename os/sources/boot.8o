@@ -1,5 +1,6 @@
 :const io_gist 0x1f2
 :const io_mouse 0x1f3
+:const io_palette 0x1f6
 
 : main
 	io_init
@@ -22,7 +23,24 @@
 	va := IO_ID_MOUSE
 	io_init_device
 
+	va := IO_ID_SETTINGS
+	io_init_device
+
+	:unpack 0 palette
+	i := io_palette
+	save v0 - v0
+	i := io_palette
+	save v1 - v1
+
 	jump main_high
+
+: palette
+	0x00 0x00 0x00
+	0xff 0xff 0xff
+	0xff 0xff 0xff
+	0xff 0xff 0xff
+	0x00 0x00 0x00
+	0x00 0x00 0x00
 
 :org 0xf80
 : main_high

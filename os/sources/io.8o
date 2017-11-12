@@ -4,7 +4,8 @@
 :const IO_ID_KEYBOARD 3
 :const IO_ID_GAMEPAD1 4
 :const IO_ID_GAMEPAD2 5
-:const IO_ID_YM2612   6
+:const IO_ID_SETTINGS 6
+:const IO_ID_YM2612   7
 
 :const IO_BASE_ADDR_COMPAT 0x1f0
 
