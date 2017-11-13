@@ -29,7 +29,6 @@
 	:unpack 0 palette
 	i := io_palette
 	save v0 - v0
-	i := io_palette
 	save v1 - v1
 
 	jump main_high
