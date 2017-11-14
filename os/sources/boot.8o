@@ -43,6 +43,8 @@
 
 :org 0xf80
 : main_high
+	hires
+	clear
 
 	i := io_mouse
 	v0 := 1 #hide cursor
