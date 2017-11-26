@@ -1,6 +1,19 @@
 Item {
 	anchors.fill: context;
 
+	WebItem {
+		x: 10;
+		y: 10;
+		width: 50;
+		height: width;
+
+		ImageMixin { source: "res/settings.png"; }
+
+		onClicked: {
+			//TODO: show settings
+		}
+	}
+
 	Emulator {
 		id: emulator;
 		anchors.top: parent.top;
