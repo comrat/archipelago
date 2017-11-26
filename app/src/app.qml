@@ -1,5 +1,8 @@
-Item {
+Rectangle {
 	anchors.fill: context;
+	color: colorTheme.backgroundColor;
+
+	ColorTheme { id: colorTheme; }
 
 	WebItem {
 		x: 10;
